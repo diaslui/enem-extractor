@@ -3,3 +3,4 @@
 *.pyc
 *.env
 */__pycache__/
+*.pdf
