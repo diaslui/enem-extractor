@@ -8,11 +8,11 @@ Day 1 -> Linguagens, Códigos e suas Tecnologias
 Day 2 -> Ciências da Natureza e suas Tecnologias + Matemática e suas Tecnologias
 """
 
-def extractor(file_pdf:str, test_answer_key_path: str | None=None) -> dict | None:
+def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> dict | None:
     """
     This function is the main function of the application.
 
-    :param file_pdf: str path pdf file
+    :param file_pdf_path: str path pdf file
     :param test_answer_key_path: str path to pdf file
     :return: dict or None
 
@@ -23,6 +23,8 @@ def extractor(file_pdf:str, test_answer_key_path: str | None=None) -> dict | Non
     if test_answer:
         test_answer = answer_parser(test_answer_key_path)
 
+#    with fitz.open(file_pdf_path) as pdf:
+#
 
 
 
