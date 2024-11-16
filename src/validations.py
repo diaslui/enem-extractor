@@ -2,7 +2,7 @@ import re
 from settings import MAX_QUESTIONS
 
 
-def valid_question_number(s):
+def valid_question_number(s:str) -> bool:
     """
     This tests whether it is a valid question.
     It is a valid question if it has the term QUEST
