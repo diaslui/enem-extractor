@@ -1,5 +1,5 @@
 import re
-from settings import MAX_QUESTIONS
+from .settings import MAX_QUESTIONS
 
 
 def valid_question_number(s:str) -> bool:
@@ -18,3 +18,4 @@ def valid_question_number(s:str) -> bool:
     pattern = rf'\b(0?[0-9]|[1-8][0-9]|{MAX_QUESTIONS})\b'
     match = re.search(pattern, s)
     return match is not None
+
