@@ -87,6 +87,14 @@ def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> list 
                                 question_content = []
                                 question_alternatives = {}
                             continue
+
+                        if actual_question:
+                            # question content (text) found
+                            question_content.append({
+                                "type": "text",
+                                "content": text
+                            })
+                        continue
                 
 
 
