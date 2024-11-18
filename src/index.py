@@ -21,7 +21,7 @@ Day 1 -> Linguagens, Códigos e suas Tecnologias
 Day 2 -> Ciências da Natureza e suas Tecnologias + Matemática e suas Tecnologias
 """
 
-def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None=None) -> list | None:
+def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None=None) -> tuple | None:
     """
     This function is the main function of the application.
 
@@ -33,7 +33,7 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
     """
     test_answer: dict | None = {} if test_answer_key_path else None
 
-    if test_answer:
+    if test_answer != None:
         test_answer = answer_parser(test_answer_key_path)
 
     questions: list  = []
@@ -130,4 +130,4 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
         for data in img_data:
             os.remove(data["imagePath"])
 
-    return questions if questions else None
+    return (root_path, questions) if questions else None
