@@ -19,35 +19,19 @@ def valid_question_number(s:str) -> bool:
     match = re.search(pattern, s)
     return match is not None
 
-def extract_alternative(s:str) -> None | tuple:
+def extract_alternative(s:str) -> None | int:
     """
     This function checks if the string is an alternative to a question.
 
-    To be a question, the text must start with an alternative
-    and end with space.
-
-    Examples:
-
-    Agua mole pedra dura. -> None
-    B  Agua mole pedra dura. -> ("B", "Agua mole pedra dura.")
+    To be a question, the text must start with an alternative.
 
     :param s: str
-    :return: None | tuple
+    :return: None | int (index of alternative)
     """
-    alternative = None
     alternatives = ["A", "B", "C", "D", "E"]
+    s = s.strip()
 
-    for alternative in alternatives:
-        if s.startswith(alternative):
-            alternative = alternative
-            break
-    
-    if alternative is None:
-        return None
-    
-    if s.split(alternative)[1].startswith(" "):
-        txt = s[s.index(alternative)+1:]
-        txt = txt.lstrip()
-        return (alternative, txt )
+    if s in alternatives:
+        return alternatives.index(s)
     
     return None
