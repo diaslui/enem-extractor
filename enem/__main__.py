@@ -1,5 +1,6 @@
-from src.index import extractor
 import os
+import sys
+from .src.__main__ import extractor
 import json
 import time
 import colorama
@@ -22,6 +23,10 @@ some tests from previous years may have difficulty or not work.
 """
 
 def main():
+    if len(sys.argv) <= 1:
+        print(colorama.Fore.RED + "No arguments provided.")
+        print(colorama.Fore.YELLOW + "Usage: enem -f <file_path> [-k <key_path>] [-o <output_path>]")
+        sys.exit(1)
     parser = ArgumentParser(
         description="CLI Tool for ENEM PDF Extraction and JSON Export."
     )
@@ -43,7 +48,7 @@ def main():
 
     if not file_path:
         print(colorama.Fore.RED + "Error: No input file provided.")
-        print(colorama.Fore.YELLOW + "Usage: python main.py -f <file_path> [-k <key_path>] [-o <output_path>]")
+        print(colorama.Fore.YELLOW + "Usage: enem -f <file_path> [-k <key_path>] [-o <output_path>]")
         sys.exit(1)
 
     if not os.path.exists(file_path):
@@ -76,8 +81,8 @@ def main():
                     json.dump({"data": result}, f, indent=4, ensure_ascii=False)
 
                 elapsed_time = time.time() - start_time
-                print(colorama.Fore.GREEN + f"Extraction completed successfully in {elapsed_time:.2f} seconds.")
-                print(colorama.Fore.CYAN + f"Total questions extracted: {len(result)}")
+                print(colorama.Fore.GREEN + f"Extraction completed successfully.")
+                print(colorama.Fore.WHITE + f"{len(result)} questions extracted in {elapsed_time:.2f} seconds.")
                 print(colorama.Fore.LIGHTBLUE_EX + f"Output file saved at: {output_file}")
         else:
             print(colorama.Fore.RED + "Error: Extraction failed. No data returned.")
@@ -86,10 +91,6 @@ def main():
         sys.exit(1)
 
 
-if __name__ == "__main__":
-    if len(sys.argv) <= 1:
-        print(colorama.Fore.RED + "No arguments provided.")
-        print(colorama.Fore.YELLOW + "Usage: python main.py -f <file_path> [-k <key_path>] [-o <output_path>]")
-        sys.exit(1)
 
+if __name__ == "__main__":
     main()

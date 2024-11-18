@@ -6,3 +6,8 @@
 *.pdf
 *.png
 /output
+/dist
+/build
+*.egg-info
+*.egg
+*.log

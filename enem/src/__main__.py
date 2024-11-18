@@ -33,7 +33,7 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
     """
     test_answer: dict | None = {} if test_answer_key_path else None
 
-    if test_answer != None:
+    if test_answer_key_path is not None and test_answer != None:
         test_answer = answer_parser(test_answer_key_path)
 
     questions: list  = []
@@ -133,6 +133,6 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
         for data in img_data:
             os.remove(data["imagePath"])
 
-    if test_answer != None:
+    if test_answer and test_answer != None:
         questions = test_correction(questions, test_answer)
     return (root_path, questions) if questions else None

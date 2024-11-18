@@ -1,4 +1,4 @@
-# Enem Extractor -  ⭑⋆｡˚ه 📚🗺 ∑∞ⁿ⁼⁰ ¹ₙ
+# Enem Extractor 
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/luiisp/enem-extractor/blob/main/readme.en.md)
 > Tag this project with a star 🌟
