@@ -39,13 +39,15 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
     questions: list  = []
     img_data: list = []
     doc = fitz.open(file_pdf_path)
+    file_name = os.path.splitext(os.path.basename(file_pdf_path))[0]
     actual_question: dict | None = None
     question_content: list = []
     question_alternatives: dict = {}
+    root_path = os.path.join(root_path, f"output_{file_name}")
     if not os.path.exists(os.path.join(root_path, "img")):
         os.makedirs(os.path.join(root_path, "img"))
     image_output_path = os.path.join(root_path, "img")
-    print("Image output path: ", image_output_path)
+
     for page_num, page in enumerate(doc, start=1):
         images = page.get_images(full=True)
         for img in images:
