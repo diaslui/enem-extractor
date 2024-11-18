@@ -1,5 +1,6 @@
 import fitz
 import io
+import os
 from PIL import Image
 from typing import Union, Optional
 from .validations import valid_question_number
@@ -99,7 +100,7 @@ def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> list 
                             })
                         continue
 
-            if block_type == 1:
+            if block_type == 1: # image
                 if actual_question is None:
                     continue
 
@@ -114,11 +115,9 @@ def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> list 
                                 })
                         img_data.remove(data)
                         break
-                
-
-
-
-
-
     
+    if img_data.__len__() > 0:
+        for data in img_data:
+            os.remove(data["imagePath"])
+
     return questions if questions else None
