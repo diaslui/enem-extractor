@@ -4,6 +4,7 @@ from .validations import valid_question_number
 from .utils import parse_question_number
 from .answers import answer_parser
 from .image_extractor import resolve_image
+from .validations import is_question_alternative
 """
 
 (c) 2024 Pedro L. Dias
@@ -42,6 +43,51 @@ def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> list 
             img_ = resolve_image(image_output_path="images", page=page ,doc=doc, img=img)
             if img_:
                 img_data.append(img_)
+
+        for block in page.get_text("dict")["blocks"]:
+            block_type = block["type"]
+            if block_type == 0: # text
+                for line in block["lines"]:
+                    for span in line["spans"]:
+                        text = span["text"]
+
+                        if "questão" in text.lower() and valid_question_number(text):
+                            # question found
+                            actual_question = parse_question_number(text)
+                            question_content = []
+                            continue
+
+                        alternative_test = is_question_alternative(text)
+
+                        if alternative_test != None and question_content != []:
+                            # alternative found (A, B, C, D, E)..
+                            alternative = alternative_test
+                            question_alternatives[alternative] = {
+                                "text": "",
+                                "alternative_value": alternative,
+                                "correct": False
+                            }
+                            continue
+
+                        if alternative_test == None and len(text.strip()) < 2:
+                            # empty line found
+                            continue
+
+                        if alternative_test == None and question_alternatives != {}:
+                            # alternative text found
+                            question_alternatives[len(question_alternatives)-1]["text"] += text
+                            if question_alternatives[len(question_alternatives)-1]["alternative_value"] == 4:
+                                # EOQ end of question
+                                questions.append({
+                                        "number": actual_question,
+                                        "content": question_content,
+                                        "alternatives": question_alternatives
+                                })
+                                actual_question = None
+                                question_content = []
+                                question_alternatives = {}
+                            continue
+                
 
 
 

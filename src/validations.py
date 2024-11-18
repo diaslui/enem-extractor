@@ -19,7 +19,7 @@ def valid_question_number(s:str) -> bool:
     match = re.search(pattern, s)
     return match is not None
 
-def extract_alternative(s:str) -> None | int:
+def is_question_alternative(s:str) -> None | int:
     """
     This function checks if the string is an alternative to a question.
 
