@@ -5,7 +5,7 @@ from PIL import Image
 from typing import Union, Optional
 from .validations import valid_question_number
 from .utils import parse_question_number, rename_file
-from .answers import answer_parser
+from .answers import answer_parser, test_correction
 from .image_extractor import resolve_image
 from .validations import is_question_alternative
 
@@ -130,4 +130,6 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
         for data in img_data:
             os.remove(data["imagePath"])
 
+    if test_answer != None:
+        questions = test_correction(questions, test_answer)
     return (root_path, questions) if questions else None

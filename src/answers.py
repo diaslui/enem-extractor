@@ -1,5 +1,6 @@
 import re
 import fitz
+from .validations import is_question_alternative
 
 def answer_parser(file_pdf_src:str) -> dict | None:
     """
@@ -42,3 +43,32 @@ def answer_parser(file_pdf_src:str) -> dict | None:
 
           
     return answers if answers else None
+
+
+def test_correction(questions:list, answers:dict) -> list:
+    """
+    This function is responsible for correcting the test based on the answers extracted from the test key.
+
+    :param questions: list
+    :param answers: dict
+    :return: dict
+    """
+    for answer in answers.items():
+        q_number = answer[0]
+        q_answer = answer[1]
+
+        alt = is_question_alternative(q_answer)
+
+        for question in questions:
+            if q_number == question['number'] or q_number == f"{question['number']}_1": 
+                if any(alt.get("correct") for alt in question['alternatives'].values()):
+                    continue
+                for alternative in question['alternatives'].items():
+                    if alternative[1]['alternative_value'] == alt:
+                        alternative[1]["correct"] = True
+                        break
+
+    return questions
+        
+
+        
