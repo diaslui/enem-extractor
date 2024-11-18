@@ -1,10 +1,13 @@
 import fitz
+import io
+from PIL import Image
 from typing import Union, Optional
 from .validations import valid_question_number
 from .utils import parse_question_number
 from .answers import answer_parser
 from .image_extractor import resolve_image
 from .validations import is_question_alternative
+
 """
 
 (c) 2024 Pedro L. Dias
@@ -95,6 +98,22 @@ def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> list 
                                 "content": text
                             })
                         continue
+
+            if block_type == 1:
+                if actual_question is None:
+                    continue
+
+                image = Image.open(io.BytesIO(block["image"]))
+                width, height = image.size
+
+                for data in img_data:
+                    if data["width"] == width and data["height"] == height:
+                        question_content.append({
+                                    "type": "image",
+                                    "content": data["imagePath"]
+                                })
+                        img_data.remove(data)
+                        break
                 
 
 
