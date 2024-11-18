@@ -74,7 +74,9 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
                             # alternative found (A, B, C, D, E)..
                             alternative = alternative_test
                             question_alternatives[alternative] = {
-                                "text": "",
+                                "alternative": text.strip(),
+                                "content": "",
+                                "type": "",
                                 "alternative_value": alternative,
                                 "correct": False
                             }
@@ -86,7 +88,8 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
 
                         if alternative_test == None and question_alternatives != {}:
                             # alternative text found
-                            question_alternatives[len(question_alternatives)-1]["text"] += text
+                            question_alternatives[len(question_alternatives)-1]["content"] += text
+                            question_alternatives[len(question_alternatives)-1]["type"] = "text"
                             if question_alternatives[len(question_alternatives)-1]["alternative_value"] == 4:
                                 # EOQ end of question
                                 questions.append({
