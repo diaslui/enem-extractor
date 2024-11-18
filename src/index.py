@@ -4,7 +4,7 @@ import os
 from PIL import Image
 from typing import Union, Optional
 from .validations import valid_question_number
-from .utils import parse_question_number
+from .utils import parse_question_number, rename_file
 from .answers import answer_parser
 from .image_extractor import resolve_image
 from .validations import is_question_alternative
@@ -21,11 +21,12 @@ Day 1 -> Linguagens, Códigos e suas Tecnologias
 Day 2 -> Ciências da Natureza e suas Tecnologias + Matemática e suas Tecnologias
 """
 
-def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> list | None:
+def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None=None) -> list | None:
     """
     This function is the main function of the application.
 
     :param file_pdf_path: str path pdf file
+    :param root_path: str path to root path
     :param test_answer_key_path: str path to pdf file
     :return: dict or None
 
@@ -41,10 +42,14 @@ def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> list 
     actual_question: dict | None = None
     question_content: list = []
     question_alternatives: dict = {}
+    if not os.path.exists(os.path.join(root_path, "img")):
+        os.makedirs(os.path.join(root_path, "img"))
+    image_output_path = os.path.join(root_path, "img")
+    print("Image output path: ", image_output_path)
     for page_num, page in enumerate(doc, start=1):
         images = page.get_images(full=True)
         for img in images:
-            img_ = resolve_image(image_output_path="images", page=page ,doc=doc, img=img)
+            img_ = resolve_image(image_output_path=image_output_path, page=page ,doc=doc, img=img)
             if img_:
                 img_data.append(img_)
 
@@ -109,11 +114,14 @@ def extractor(file_pdf_path:str, test_answer_key_path: str | None=None) -> list 
 
                 for data in img_data:
                     if data["width"] == width and data["height"] == height:
-                        question_content.append({
-                                    "type": "image",
-                                    "content": data["imagePath"]
-                                })
                         img_data.remove(data)
+                        new_path = rename_file(data["imagePath"], f"question-{actual_question}")
+                        if new_path:
+                            question_content.append({
+                                    "type": "image",
+                                    "content": new_path if new_path else data["imagePath"]
+                                })
+
                         break
     
     if img_data.__len__() > 0:
