@@ -3,8 +3,6 @@
 *.pyc
 *.env
 */__pycache__/
-*.pdf
-*.png
 /output
 /dist
 /build
