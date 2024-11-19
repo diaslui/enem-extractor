@@ -2,6 +2,8 @@
 # Enem Extractor
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/luiisp/enem-extractor/blob/main/readme.en.md)
+<a href="https://pypi.python.org/pypi/enem" target="_blank"><img src="https://img.shields.io/pypi/v/enem.svg?color=3399EE" alt="PyPI version" /></a>
+
 > ⭐ Star this project to support!
 
 **Enem Extractor** é uma ferramenta que extrai automaticamente as questões de provas do ENEM (ou provas semelhantes) em segundos.
