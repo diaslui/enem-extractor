@@ -5,7 +5,7 @@
             "content": [
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-1.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-1.png"
                 },
                 {
                     "type": "text",
@@ -177,7 +177,7 @@
             "content": [
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-3.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-3.png"
                 },
                 {
                     "type": "text",
@@ -345,7 +345,7 @@
             "content": [
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-5.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-5.png"
                 },
                 {
                     "type": "text",
@@ -3255,7 +3255,7 @@
                 },
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-21.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-21.png"
                 },
                 {
                     "type": "text",
@@ -3755,7 +3755,7 @@
             "content": [
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-25.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-25.png"
                 },
                 {
                     "type": "text",
@@ -4983,7 +4983,7 @@
             "content": [
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-33.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-33.png"
                 },
                 {
                     "type": "text",
@@ -5341,7 +5341,7 @@
                 },
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-36.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-36.png"
                 },
                 {
                     "type": "text",
@@ -5369,7 +5369,7 @@
                 },
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-36_1.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-36_1.png"
                 },
                 {
                     "type": "text",
@@ -6455,7 +6455,7 @@
                 },
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-43.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-43.png"
                 },
                 {
                     "type": "text",
@@ -7627,7 +7627,7 @@
                 },
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-53.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-53.png"
                 },
                 {
                     "type": "text",
@@ -10295,7 +10295,7 @@
             "content": [
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-77.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-77.png"
                 },
                 {
                     "type": "text",
@@ -11225,7 +11225,7 @@
                 },
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-86.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-86.png"
                 },
                 {
                     "type": "text",
@@ -11237,7 +11237,7 @@
                 },
                 {
                     "type": "image",
-                    "content": "https://github.com/luiisp/enem-extractor/tree/master/examples/output_example/output_prova/img/question-86_1.png"
+                    "content": "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/img/question-86_1.png"
                 },
                 {
                     "type": "text",
