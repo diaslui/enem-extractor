@@ -6,7 +6,7 @@
 
 > ⭐ Star this project to support!
 
-**Enem Extractor** é uma ferramenta que extrai automaticamente as questões de provas do ENEM (ou provas semelhantes) em segundos.
+**Enem Extractor** é uma ferramenta que extrai automaticamente questões de provas do ENEM (ou de provas semelhantes) e as converte em formatos como JSON.
 
 ## 🚀 Rodando
 
