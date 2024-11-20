@@ -4,7 +4,12 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/luiisp/enem-extractor/blob/main/readme.en.md)
 <a href="https://pypi.python.org/pypi/enem" target="_blank"><img src="https://img.shields.io/pypi/v/enem.svg?color=3399EE" alt="PyPI version" /></a>
 
+ [English version](https://github.com/luiisp/enem-extractor/blob/main/readme.en.md)
+
+
 > ⭐ Star this project to support!
+
+
 
 **Enem Extractor** é uma ferramenta que extrai automaticamente questões de provas do ENEM (ou de provas semelhantes) e as converte em formatos como JSON.
 
@@ -51,117 +56,10 @@ Este comando irá extrair as questões da prova `prova.pdf`, corrigir com o gaba
 
 ## Saída
 
+ **[Aprenda sobre as saídas que da extração clicando aqui.](examples/output_example/readme.md)**
+
 <img src="https://github.com/user-attachments/assets/9e78b4f0-2055-4f32-a9c5-1bc3e96a2fdc" alt="demo_enem" width="350"/>
 
-
-
-### Exemplo JSON de saída
-
-**Para a questão:**
-```plaintext
-QUESTÃO 1:
-
-Supondo que gatos e capivaras se unam para dominar o mundo, e criem uma união chamada "Capigatos", cujo o objetivo é criar uma revolução leia os textos abaixo
-
-```
-<p align="center">
-    <img src="https://i.redd.it/l955pjg0aju11.jpg" alt="demo_enem" width="150"/>
-</p>
-
-```
-Texto 1:
-
-
-Gatos de todos os lugares, uni-vos! A revolução Capigatos está chegando! Juntos com nossos irmãos capivaras, dominaremos o mundo!
-
-Texto 2:
-
-Capivaras, o momento é agora! Juntos, podemos dominar o mundo e criar um novo império! 
-
-Nos textos acima, a união entre gatos e capivaras tem como principal pilar a
-
-A) formação de uma aliança para compartilhar recursos.
-B) relação de interdependência entre as espécies.
-C) formação de uma aliança para a revolução.
-D) dominação do mundo por uma única espécie.
-E) amizade entre os animais.
-
-```
-
-**O JSON gerado será:**
-
-```json
- {
-            "number": 1,
-            "content": [
-                {
-                    "type": "text",
-                    "content": "Supondo que gatos e capivaras se unam para dominar o mundo, e criem uma união chamada Capigatos, cujo o objetivo é criar uma revolução leia os textos abaixo"
-                },
-                                {
-                    "type": "image",
-                    "content": "https://i.redd.it/l955pjg0aju11.jpg"
-                },
-                {
-                    "type": "text",
-                    "content": "Texto 1:"
-                },
-                {
-                    "type": "text",
-                    "content": "Gatos de todos os lugares, uni-vos! A revolução Capigatos está chegando! Juntos com nossos irmãos capivaras, dominaremos o mundo!"
-                },
-                {
-                    "type": "text",
-                    "content": "Texto 2:"
-                },
-                {
-                    "type": "text",
-                    "content": "Capivaras, o momento é agora! Juntos, podemos dominar o mundo e criar um novo império!"
-                },
-                {
-                    "type": "text",
-                    "content": "Nos textos acima, a união entre gatos e capivaras tem como principal pilar a"
-                }
-            ],
-            "alternatives": {
-                "0": {
-                    "alternative": "A",
-                    "content": "formação de uma aliança para compartilhar recursos.",
-                    "type": "text",
-                    "alternative_value": 0,
-                    "correct": false
-                },
-                "1": {
-                    "alternative": "B",
-                    "content": "relação de interdependência entre as espécies.",
-                    "type": "text",
-                    "alternative_value": 1,
-                    "correct": false
-                },
-                "2": {
-                    "alternative": "C",
-                    "content": "formação de uma aliança para a revolução.",
-                    "type": "text",
-                    "alternative_value": 2,
-                    "correct": true
-                },
-                "3": {
-                    "alternative": "D",
-                    "content": "dominação do mundo por uma única espécie.",
-                    "type": "text",
-                    "alternative_value": 3,
-                    "correct": false
-                },
-                "4": {
-                    "alternative": "E",
-                    "content": "amizade entre os animais.",
-                    "type": "text",
-                    "alternative_value": 4,
-                    "correct": false
-                }
-            }
-        }
-```
 
 
 ## 🔧 Como Contribuir
@@ -180,7 +78,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 - [Documentação do PyMuPDF](https://pypi.org/project/PyMuPDF/)
 - [Repositório](https://github.com/luiisp/enem-extractor)
-- [Versão em Inglês do README](https://github.com/luiisp/enem-extractor/blob/main/readme.en.md)
+- [English version of README](https://github.com/luiisp/enem-extractor/blob/main/readme.en.md)
 
 ---
 
@@ -188,3 +86,11 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 Caso você tenha alguma dúvida, queira sugerir melhorias ou encontre problemas, fique à vontade para [abrir um issue](https://github.com/luiisp/enem-extractor/issues).
 
+### 🌀 Subdependências 
+
+- [PyMuPDF](https://pypi.org/project/PyMuPDF/) - PDF parsing 
+- [Pillow](https://pypi.org/project/Pillow/) - Image processing 
+- [Colorama](https://pypi.org/project/colorama/) - Terminal colors 
+
+
+Created with ❤️ by [Pedro L. Dias](https://github.com/luiisp)
