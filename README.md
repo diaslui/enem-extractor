@@ -1,10 +1,10 @@
 
 # Enem Extractor
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/luiisp/enem-extractor/blob/main/README.en.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/luiisp/enem-extractor/blob/master/README.en.md)
 <a href="https://pypi.python.org/pypi/enem" target="_blank"><img src="https://img.shields.io/pypi/v/enem.svg?color=3399EE" alt="PyPI version" /></a>
 
- [English version](https://github.com/luiisp/enem-extractor/blob/main/README.en.md)
+ [English version](https://github.com/luiisp/enem-extractor/blob/master/README.en.md)
 
 
 > ⭐ Star this project to support!
@@ -78,7 +78,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 - [Documentação do PyMuPDF](https://pypi.org/project/PyMuPDF/)
 - [Repositório](https://github.com/luiisp/enem-extractor)
-- [English version of README](https://github.com/luiisp/enem-extractor/blob/main/README.en.md)
+- [English version of README](https://github.com/luiisp/enem-extractor/blob/master/README.en.md)
 
 ---
 
