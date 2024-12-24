@@ -1,6 +1,6 @@
 import re
 from .settings import MAX_QUESTIONS
-
+from typing import Optional
 
 def valid_question_number(s:str) -> bool:
     """
@@ -19,7 +19,7 @@ def valid_question_number(s:str) -> bool:
     match = re.search(pattern, s)
     return match is not None
 
-def is_question_alternative(s:str) -> None | int:
+def is_question_alternative(s:str) -> Optional[int]:
     """
     This function checks if the string is an alternative to a question.
 
