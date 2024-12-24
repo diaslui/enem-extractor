@@ -21,7 +21,7 @@ Day 1 -> Linguagens, Códigos e suas Tecnologias
 Day 2 -> Ciências da Natureza e suas Tecnologias + Matemática e suas Tecnologias
 """
 
-def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None=None) -> tuple | None:
+def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional[str] = None) -> Optional[tuple]:
     """
     This function is the main function of the application.
 
@@ -31,7 +31,7 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
     :return: dict or None
 
     """
-    test_answer: dict | None = {} if test_answer_key_path else None
+    test_answer: Optional[dict] = {} if test_answer_key_path else None
 
     if test_answer_key_path is not None and test_answer != None:
         test_answer = answer_parser(test_answer_key_path)
@@ -40,7 +40,7 @@ def extractor(file_pdf_path:str, root_path:str, test_answer_key_path: str | None
     img_data: list = []
     doc = fitz.open(file_pdf_path)
     file_name = os.path.splitext(os.path.basename(file_pdf_path))[0]
-    actual_question: dict | None = None
+    actual_question: Optional[dict] = None
     question_content: list = []
     question_alternatives: dict = {}
     root_path = os.path.join(root_path, f"output_{file_name}")

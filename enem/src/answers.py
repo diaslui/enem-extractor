@@ -1,8 +1,9 @@
 import re
 import fitz
 from .validations import is_question_alternative
+from typing import Union
 
-def answer_parser(file_pdf_src:str) -> dict | None:
+def answer_parser(file_pdf_src: str) -> Union[dict, None]:
     """
     This function is responsible for extracting the answers from the test key.
 

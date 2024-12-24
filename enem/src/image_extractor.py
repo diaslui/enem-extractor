@@ -1,4 +1,5 @@
 import fitz
+from typing import Union
 import os
 dimlimit = 0
 abssize = 0
@@ -55,7 +56,7 @@ def recoverpix(doc, item):
         }
     return doc.extract_image(xref)
 
-def resolve_image(image_output_path, page, doc, img) -> dict | None:
+def resolve_image(image_output_path, page, doc, img) -> Union[dict, None]:
     """
     This function is responsible for extracting image data and saving it.
 

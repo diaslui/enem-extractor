@@ -1,12 +1,13 @@
 import re
 import os
+from typing import Union
 
 def parse_question_number(s: str) -> int:
     # extract real question number from string
     numbers = re.findall(r'\d+', s)
     return int(''.join(numbers))
 
-def rename_file(image_output_path: str, f_name: str) -> None | str:
+def rename_file(image_output_path: str, f_name: str) -> Union[None, str]:
     """
     This function is responsible for renaming the file.
 
