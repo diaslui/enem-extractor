@@ -1,10 +1,10 @@
 
 # Enem Extractor
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/luiisp/enem-extractor/blob/master/README.en.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/diaslui/enem-extractor/blob/master/README.en.md)
 <a href="https://pypi.python.org/pypi/enem" target="_blank"><img src="https://img.shields.io/pypi/v/enem.svg?color=3399EE" alt="PyPI version" /></a>
 
- [English version](https://github.com/luiisp/enem-extractor/blob/master/README.en.md)
+ [English version](https://github.com/diaslui/enem-extractor/blob/master/README.en.md)
 
 
 > ⭐ Star this project to support!
@@ -13,7 +13,7 @@
 
 **Enem Extractor** é uma ferramenta que extrai automaticamente questões de provas do ENEM (ou de provas semelhantes) e as converte em formatos como JSON.
 
-🏓 [Veja uma prova extraida pelo Enem Extractor no mundo real aqui](https://luiisp.github.io/enem-extractor/)
+🏓 [Veja uma prova extraida pelo Enem Extractor no mundo real aqui](https://diaslui.github.io/enem-extractor/)
 
 
 ## 🚀 Rodando
@@ -77,14 +77,14 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ## 📚 Links Úteis
 
 - [Documentação do PyMuPDF](https://pypi.org/project/PyMuPDF/)
-- [Repositório](https://github.com/luiisp/enem-extractor)
-- [English version of README](https://github.com/luiisp/enem-extractor/blob/master/README.en.md)
+- [Repositório](https://github.com/diaslui/enem-extractor)
+- [English version of README](https://github.com/diaslui/enem-extractor/blob/master/README.en.md)
 
 ---
 
 ### 📢 Issues
 
-Caso você tenha alguma dúvida, queira sugerir melhorias ou encontre problemas, fique à vontade para [abrir um issue](https://github.com/luiisp/enem-extractor/issues).
+Caso você tenha alguma dúvida, queira sugerir melhorias ou encontre problemas, fique à vontade para [abrir um issue](https://github.com/diaslui/enem-extractor/issues).
 
 ### 🌀 Subdependências 
 
@@ -93,4 +93,4 @@ Caso você tenha alguma dúvida, queira sugerir melhorias ou encontre problemas,
 - [Colorama](https://pypi.org/project/colorama/) - Terminal colors 
 
 
-Created with ❤️ by [Pedro L. Dias](https://github.com/luiisp)
+Created with ❤️ by [Pedro L. Dias](https://github.com/diaslui)

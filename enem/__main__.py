@@ -12,7 +12,7 @@ colorama.init(autoreset=True)
 """
 (c) 2024 Pedro L. Dias
 Licensed under the MIT License
-https://github.com/luiisp/enem-extractor
+https://github.com/diaslui/enem-extractor
 
 ------------------------------------------------------------------
 Important notice:

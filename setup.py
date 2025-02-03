@@ -25,7 +25,7 @@ setup(
     license='MIT',  
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/luiisp/enem-extractor',
+    url='https://github.com/diaslui/enem-extractor',
     classifiers=[
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',

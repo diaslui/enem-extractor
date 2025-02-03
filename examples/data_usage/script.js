@@ -3,7 +3,7 @@
  * (c) 2024 Pedro L Dias
  *
  * This file is a demonstration of the use of questions extracted by enem-extractor
- * learn more at https://github.com/luiisp/enem-extractor
+ * learn more at https://github.com/diaslui/enem-extractor
  */
 
 let quizData = [];
@@ -149,7 +149,7 @@ function loadNextQuestion() {
 skipButton.addEventListener("click", loadNextQuestion);
 
 fetch(
-  "https://raw.githubusercontent.com/luiisp/enem-extractor/refs/heads/master/examples/output_example/output_prova/output.json"
+  "https://raw.githubusercontent.com/diaslui/enem-extractor/refs/heads/master/examples/output_example/output_prova/output.json"
 )
   .then((response) => response.json())
   .then((data) => {

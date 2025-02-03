@@ -2,7 +2,7 @@
 
 **O que esse exemplo considera?**
 
-Esse exemplo considera que você já tenha extraído os dados de uma prova do Enem com o Enem Extractor usando o comando `enem prova.pdf gabarito.pdf`. Se você ainda não fez isso, [clique aqui para ver como isso pode ser feito](https://github.com/luiisp/enem-extractor?tab=readme-ov-file#saida).
+Esse exemplo considera que você já tenha extraído os dados de uma prova do Enem com o Enem Extractor usando o comando `enem prova.pdf gabarito.pdf`. Se você ainda não fez isso, [clique aqui para ver como isso pode ser feito](https://github.com/diaslui/enem-extractor?tab=readme-ov-file#saida).
 
 ----------------
 
@@ -258,4 +258,4 @@ Esse é o básico sobre a saída da extração. Com essas informações você j�
 
 ### Próximos passos
 
-Agora que você já sabe como é a saída da extração, você pode começar a manipular os dados extraídos. [Clique aqui para ver um exemplo de como isso pode ser feito](https://github.com/luiisp/enem-extractor/tree/master/examples/data_usage).
+Agora que você já sabe como é a saída da extração, você pode começar a manipular os dados extraídos. [Clique aqui para ver um exemplo de como isso pode ser feito](https://github.com/diaslui/enem-extractor/tree/master/examples/data_usage).

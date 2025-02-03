@@ -7,7 +7,7 @@ relsize = 0
 
 """
 (c) 2024 Pedro L. Dias
-https://github.com/luiisp/
+https://github.com/diaslui/
 
 -----------------------------------------------------------------------
 

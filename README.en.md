@@ -1,10 +1,10 @@
 
 # Enem Extractor
 
-[![pt-br](https://img.shields.io/badge/lang-ptbr-red.svg)](https://github.com/luiisp/enem-extractor/blob/main/readme.md)
+[![pt-br](https://img.shields.io/badge/lang-ptbr-red.svg)](https://github.com/diaslui/enem-extractor/blob/main/readme.md)
 <a href="https://pypi.python.org/pypi/enem" target="_blank"><img src="https://img.shields.io/pypi/v/enem.svg?color=3399EE" alt="PyPI version" /></a>
 
-[Versão em Português](https://github.com/luiisp/enem-extractor/blob/main/readme.en.md)
+[Versão em Português](https://github.com/diaslui/enem-extractor/blob/main/readme.en.md)
 
 > ⭐ Star this project to support!
 
@@ -18,7 +18,7 @@ The National High School Exam (ENEM) is a test created by the Brazilian Ministry
 
 **Enem Extractor** is a tool that automatically extracts questions from ENEM exams (or similar exams) and converts them into formats like JSON.
 
-🏓 [See a real-world exam extracted by Enem Extractor here](https://luiisp.github.io/enem-extractor/)
+🏓 [See a real-world exam extracted by Enem Extractor here](https://diaslui.github.io/enem-extractor/)
 
 
 ## 🚀 Running
@@ -80,14 +80,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📚 Useful Links
 
 - [PyMuPDF Documentation](https://pypi.org/project/PyMuPDF/)
-- [Repository](https://github.com/luiisp/enem-extractor)
-- [English version of README](https://github.com/luiisp/enem-extractor/blob/main/readme.en.md)
+- [Repository](https://github.com/diaslui/enem-extractor)
+- [English version of README](https://github.com/diaslui/enem-extractor/blob/main/readme.en.md)
 
 ---
 
 ### 📢 Issues
 
-If you have any questions, want to suggest improvements, or find issues, feel free to [open an issue](https://github.com/luiisp/enem-extractor/issues).
+If you have any questions, want to suggest improvements, or find issues, feel free to [open an issue](https://github.com/diaslui/enem-extractor/issues).
 
 ### 🌀 Subdependencies
 
@@ -95,5 +95,5 @@ If you have any questions, want to suggest improvements, or find issues, feel fr
 - [Pillow](https://pypi.org/project/Pillow/) - Image processing
 - [Colorama](https://pypi.org/project/colorama/) - Terminal colors
 
-Created with ❤️ by [Pedro L. Dias](https://github.com/luiisp)
+Created with ❤️ by [Pedro L. Dias](https://github.com/diaslui)
 

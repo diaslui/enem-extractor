@@ -1,6 +1,6 @@
 """
 2024 - Pedro Luis Dias
-https://github.com/luiisp/enem-extractor
+https://github.com/diaslui/enem-extractor
 
 
 File intended for defining configurations about

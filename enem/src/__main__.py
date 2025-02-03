@@ -12,7 +12,7 @@ from .validations import is_question_alternative
 """
 
 (c) 2024 Pedro L. Dias
-https://github.com/luiisp/enem-extractor/
+https://github.com/diaslui/enem-extractor/
 
 ------------------------------------------------------------------
 
