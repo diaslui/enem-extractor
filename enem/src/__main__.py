@@ -100,13 +100,12 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                             question_alternatives[alternative] = {
                                 "alternative": text.strip(),
                                 "content": [],
-                                "type": "",
                                 "alternative_value": alternative,
                                 "correct": False
                             }
                             continue
 
-                        if alternative_test == None and len(text.strip()) < 2:
+                        if alternative_test == None and len(text.strip()) < 2 and ' ' in text:
                             # empty line found
                             continue
 
@@ -170,6 +169,5 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
 
     if test_answer and test_answer != None:
         print(colorama.Fore.WHITE + "Starting correction...")
-        print(test_answer)
         questions = test_correction(questions, test_answer)
     return (root_path, questions) if questions else None
