@@ -3,6 +3,11 @@
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/diaslui/enem-extractor/blob/master/README.en.md)
 <a href="https://pypi.python.org/pypi/enem" target="_blank"><img src="https://img.shields.io/pypi/v/enem.svg?color=3399EE" alt="PyPI version" /></a>
+[![Downloads](https://pepy.tech/badge/enem)](https://pepy.tech/project/enem)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/diaslui/enem-extractor/blob/master/LICENSE)
+[![Issues](https://img.shields.io/github/issues/diaslui/enem-extractor.svg)](https://github.com/diaslui/enem-extractor/issues)
+
+
 
  [English version](https://github.com/diaslui/enem-extractor/blob/master/README.en.md)
 
@@ -14,6 +19,10 @@
 **Enem Extractor** é uma ferramenta que extrai automaticamente questões de provas do ENEM (ou de provas semelhantes) e as converte em formatos como JSON.
 
 🏓 [Veja uma prova extraida pelo Enem Extractor no mundo real aqui](https://diaslui.github.io/enem-extractor/)
+
+## 🗝️ Provas Extraídas
+
+Neste repositório você pode encontrar todas as provas do **Enem** em **JSON** extraídas pelo Enem Extractor. [Clique aqui para ver](https://github.com/diaslui/enem-extractor/tree/master/provas).
 
 
 ## 🚀 Rodando
@@ -33,7 +42,7 @@ pip install enem
 Após a instalação, você pode extrair questões de uma prova em formato PDF. Supondo que você tenha um arquivo de prova do ENEM chamado `prova.pdf` no mesmo diretório, basta rodar:
 
 ```bash
-enem prova.pdf
+python -m enem prova.pdf
 ```
 
 O script irá analisar a prova e extrair as questões, gerando uma pasta com um arquivo de saída em JSON com os dados extraídos e outros assets da prova. [Veja mais detalhes da saída do comando aqui](#saida).
@@ -43,13 +52,13 @@ O script irá analisar a prova e extrair as questões, gerando uma pasta com um 
 Você pode fornecer parâmetros adicionais para personalizar o processo de extração:
 
 - `-f` ou `--file`: Caminho para o arquivo PDF da prova. (obrigatório)
-- `-k` ou `--key`: Caminho para o arquivo PDF do gabarito. (opcional)
+- `-g` ou `--key`: Caminho para o arquivo PDF do gabarito. (opcional)
 - `-o` ou `--output`: Caminho onde a pasta dos arquivos extraídos será criada. (opcional)
 
 Exemplo de uso com parâmetros:
 
 ```bash
-enem -f prova.pdf -k gabarito.pdf -o C:\documents
+python -m enem -f prova.pdf -g gabarito.pdf -o C:\documents
 ```
 
 Este comando irá extrair as questões da prova `prova.pdf`, corrigir com o gabarito `gabarito.pdf` e salvar a pasta dos resultados em `C:\documents`.

@@ -48,13 +48,13 @@ The script will analyze the exam and extract the questions, generating a folder 
 You can provide additional parameters to customize the extraction process:
 
 - `-f` or `--file`: Path to the PDF exam file. (mandatory)
-- `-k` or `--key`: Path to the PDF answer key file. (optional)
+- `g` or `-key`: Path to the PDF answer key file. (optional)
 - `-o` or `--output`: Path where the folder with the extracted files will be created. (optional)
 
 Example of usage with parameters:
 
 ```bash
-enem -f test.pdf -k keya.pdf -o C:\documents
+enem -f test.pdf -g key.pdf -o C:\documents
 ```
 
 This command will extract the questions from the `test.pdf` exam, correct them with the `keya.pdf` answer key, and save the results folder in `C:\documents`.

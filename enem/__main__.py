@@ -25,7 +25,7 @@ some tests from previous years may have difficulty or not work.
 def main():
     if len(sys.argv) <= 1:
         print(colorama.Fore.RED + "No arguments provided.")
-        print(colorama.Fore.YELLOW + "Usage: enem -f <file_path> [-k <key_path>] [-o <output_path>]")
+        print(colorama.Fore.YELLOW + "Usage: enem -f <file_path> [-g <key_path>] [-o <output_path>]")
         sys.exit(1)
     parser = ArgumentParser(
         description="CLI Tool for ENEM PDF Extraction and JSON Export."
@@ -34,7 +34,7 @@ def main():
         "-f", "--file", required=False, help="Path to the input PDF file."
     )
     parser.add_argument(
-        "-k", "--key", required=False, help="Path to the test answer key PDF file."
+        "-g", "--key", required=False, help="Path to the test answer key PDF file."
     )
     parser.add_argument(
         "-o", "--output", required=False, help="Path to save the output JSON file."
@@ -48,7 +48,7 @@ def main():
 
     if not file_path:
         print(colorama.Fore.RED + "Error: No input file provided.")
-        print(colorama.Fore.YELLOW + "Usage: enem -f <file_path> [-k <key_path>] [-o <output_path>]")
+        print(colorama.Fore.YELLOW + "Usage: enem -f <file_path> [-g <key_path>] [-o <output_path>]")
         sys.exit(1)
 
     if not os.path.exists(file_path):
