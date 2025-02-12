@@ -25,7 +25,7 @@ def answer_parser(file_pdf_src: str) -> Union[dict, None]:
 
             q_n = None
             for line in lines:
-                if len(line) > 2 or not line.strip() or line == " ":
+                if len(line) > 3 or not line.strip() or line == " ":
                     continue
 
                 if re.match(r'^\s*\d+\s*$', line):
@@ -60,10 +60,13 @@ def test_correction(questions:list, answers:dict) -> list:
 
         alt = is_question_alternative(q_answer)
 
+        if not alt:
+            continue
+
         for question in questions:
             if q_number == question['number'] or q_number == f"{question['number']}_1": 
                 if any(alt.get("correct") for alt in question['alternatives'].values()):
-                    continue
+                   continue
                 for alternative in question['alternatives'].items():
                     if alternative[1]['alternative_value'] == alt:
                         alternative[1]["correct"] = True
