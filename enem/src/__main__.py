@@ -5,7 +5,7 @@ import os
 from PIL import Image
 from typing import Union, Optional
 from .validations import valid_question_number
-from .utils import parse_question_number, rename_file
+from .utils import parse_question_number, rename_file, get_font_style, convert_to_hex_color
 from .answers import answer_parser, test_correction
 from .image_extractor import resolve_image
 from .validations import is_question_alternative
@@ -113,6 +113,10 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                         if alternative_test == None and question_alternatives != {}:
                             # alternative text found
                             question_alternatives[len(question_alternatives)-1]["content"].append({
+                                "font_style": get_font_style(span['font']),
+                                "font_color": convert_to_hex_color(span['color'], span['alpha']),
+                                "font_name": span["font"],
+                                "font_size": round(span["size"], 3),
                                 "type": "text",
                                 "content": text
                             })
@@ -132,6 +136,10 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                         if actual_question:
                             # question content (text) found
                             question_content.append({
+                                "font_style": get_font_style(span['font']),
+                                "font_color": convert_to_hex_color(span['color'], span['alpha']),
+                                "font_name": span["font"],
+                                "font_size": round(span["size"], 3),
                                 "type": "text",
                                 "content": text
                             })
@@ -162,5 +170,6 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
 
     if test_answer and test_answer != None:
         print(colorama.Fore.WHITE + "Starting correction...")
+        print(test_answer)
         questions = test_correction(questions, test_answer)
     return (root_path, questions) if questions else None

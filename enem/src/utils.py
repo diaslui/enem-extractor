@@ -27,3 +27,37 @@ def rename_file(image_output_path: str, f_name: str) -> Union[None, str]:
         return new_file_path
     except Exception as e:
         return None
+    
+def get_font_style(font: str) -> str:
+    """
+    This function is responsible for extracting the font style.
+
+    :param font: str
+    :return: str
+    """
+
+    font = font.lower()
+    
+    if 'bold' in font:
+        return "bold"
+    if 'italic' in font:
+        return "italic"
+    if 'black' in font:
+        return "black"
+    
+    return "regular"
+
+def convert_to_hex_color(color: int, alpha: int = 255) -> str:
+    """
+    This function is responsible for converting the color to hexadecimal.
+
+    :param color: int
+    :param alpha: int
+    :return: str
+    """
+    
+    r = (color >> 16) & 0xFF  # red
+    g = (color >> 8) & 0xFF   # green
+    b = color & 0xFF          # blue
+
+    return f'#{r:02X}{g:02X}{b:02X}'
