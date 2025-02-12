@@ -1,4 +1,5 @@
 import fitz
+import colorama
 import io
 import os
 from PIL import Image
@@ -8,6 +9,7 @@ from .utils import parse_question_number, rename_file
 from .answers import answer_parser, test_correction
 from .image_extractor import resolve_image
 from .validations import is_question_alternative
+from .settings import QUESTION_RANGE, DAY_SPLIT
 
 """
 
@@ -36,6 +38,7 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
     if test_answer_key_path is not None and test_answer != None:
         test_answer = answer_parser(test_answer_key_path)
 
+    day: int | None = None
     questions: list  = []
     img_data: list = []
     doc = fitz.open(file_pdf_path)
@@ -61,11 +64,21 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                 for line in block["lines"]:
                     for span in line["spans"]:
                         text = span["text"]
+                    #    print(f"Text: {text.strip()}")
 
                         if "questão" in text.lower() and valid_question_number(text):
                             # question found
                             actual_question = parse_question_number(text)
                             question_content = []
+
+                            if day is None and isinstance(DAY_SPLIT, int) and DAY_SPLIT > 0 and isinstance(actual_question, int):
+                                if actual_question > DAY_SPLIT and actual_question <= QUESTION_RANGE[1]:
+                                    print(colorama.Fore.LIGHTBLACK_EX + f"Identified as day 2")
+                                    day = 2
+                                elif actual_question <= DAY_SPLIT and isinstance(QUESTION_RANGE, (list, tuple)) and actual_question >= QUESTION_RANGE[0]:
+                                    print(colorama.Fore.LIGHTBLACK_EX + f"Identified as day 1")
+                                    day = 1
+                                
                             continue
 
                         alternative_test = is_question_alternative(text)
@@ -73,9 +86,20 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                         if alternative_test != None and question_content != []:
                             # alternative found (A, B, C, D, E)..
                             alternative = alternative_test
+
+                            if question_alternatives == {} and alternative != 0:
+                                # fake call!!
+                                # if there is no alternative A, there is no point in having alternative C.
+                                continue
+                            if alternative != 0:
+                                old_alternative = question_alternatives.get(alternative-1)
+
+                                if not old_alternative:
+                                    continue
+
                             question_alternatives[alternative] = {
                                 "alternative": text.strip(),
-                                "content": "",
+                                "content": [],
                                 "type": "",
                                 "alternative_value": alternative,
                                 "correct": False
@@ -88,8 +112,11 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
 
                         if alternative_test == None and question_alternatives != {}:
                             # alternative text found
-                            question_alternatives[len(question_alternatives)-1]["content"] += text
-                            question_alternatives[len(question_alternatives)-1]["type"] = "text"
+                            question_alternatives[len(question_alternatives)-1]["content"].append({
+                                "type": "text",
+                                "content": text
+                            })
+
                             if question_alternatives[len(question_alternatives)-1]["alternative_value"] == 4:
                                 # EOQ end of question
                                 questions.append({
@@ -134,5 +161,6 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
             os.remove(data["imagePath"])
 
     if test_answer and test_answer != None:
+        print(colorama.Fore.WHITE + "Starting correction...")
         questions = test_correction(questions, test_answer)
     return (root_path, questions) if questions else None

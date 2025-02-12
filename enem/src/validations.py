@@ -1,23 +1,33 @@
 import re
-from .settings import MAX_QUESTIONS
+from .settings import QUESTION_RANGE
 from typing import Optional
 
 def valid_question_number(s:str) -> bool:
     """
     This tests whether it is a valid question.
     It is a valid question if it has the term QUEST
-    and the numbering from 0 to MAX_QUESTIONS next to it.
+    and the numbering from 0 to MAX_QUESTION_NUMBER next to it.
 
     Example:
     valid_question_number("questão 01")  # True
+    valid_question_number("questão 181")  # False
+    valid_question_number("questão 97")  # True
 
     :param s: str
     :return: bool
     
     """
-    pattern = rf'\b(0?[0-9]|[1-8][0-9]|{MAX_QUESTIONS})\b'
-    match = re.search(pattern, s)
-    return match is not None
+    match = re.search(r'\b(\d+)\b', s)
+
+    if not match:
+        return False
+    
+    question_number = int(match.group(1))
+
+    if QUESTION_RANGE[0] <= question_number <= QUESTION_RANGE[1]:
+        return True
+    
+    return False
 
 def is_question_alternative(s:str) -> Optional[int]:
     """

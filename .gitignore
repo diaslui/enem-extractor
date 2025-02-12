@@ -9,3 +9,7 @@
 *.egg-info
 *.egg
 *.log
+.mypy_cache
+*.pdf
+\output_2023
+test.py
