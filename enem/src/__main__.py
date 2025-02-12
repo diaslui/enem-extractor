@@ -105,7 +105,7 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                             }
                             continue
 
-                        if alternative_test == None and len(text.strip()) < 2 and ' ' in text:
+                        if alternative_test == None and text.strip() == '' and ' ' in text:
                             # empty line found
                             continue
 

@@ -60,7 +60,7 @@ def test_correction(questions:list, answers:dict) -> list:
 
         alt = is_question_alternative(q_answer)
 
-        if not alt:
+        if alt == None:
             continue
 
         for question in questions:
