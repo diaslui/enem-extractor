@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='enem',
-    version='1.0.2',
+    version='1.0.4',
     packages=find_packages(include=['enem', 'enem.*']),
     entry_points={
         'console_scripts': [
