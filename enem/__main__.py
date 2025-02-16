@@ -69,7 +69,7 @@ def main():
     try:
         extraction = extractor(
             file_pdf_path=file_path,
-            root_path=os.getcwd(),
+            root_path=output_path,
             test_answer_key_path=key_path,
         )
 

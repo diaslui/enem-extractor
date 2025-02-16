@@ -1,11 +1,21 @@
 
+<p align="center">
+  <a href="https://github.com/diaslui/enem-extractor">
+    <img loading="lazy" alt="enem-extractor" src="https://github.com/diaslui/enem-extractor/raw/main/docs/assets/enem-extrac-banner.png" width="100%"/>
+  </a>
+</p>
+
+
 # Enem Extractor
+
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/diaslui/enem-extractor/blob/master/README.en.md)
 <a href="https://pypi.python.org/pypi/enem" target="_blank"><img src="https://img.shields.io/pypi/v/enem.svg?color=3399EE" alt="PyPI version" /></a>
 [![Downloads](https://pepy.tech/badge/enem)](https://pepy.tech/project/enem)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/enem)](https://pypi.org/project/enem/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/diaslui/enem-extractor/blob/master/LICENSE)
 [![Issues](https://img.shields.io/github/issues/diaslui/enem-extractor.svg)](https://github.com/diaslui/enem-extractor/issues)
+
 
 
 
@@ -14,9 +24,7 @@
 
 > ⭐ Star this project to support!
 
-
-
-**Enem Extractor** é uma ferramenta que extrai automaticamente questões de provas do ENEM (ou de provas semelhantes) e as converte em formatos como JSON.
+**Enem Extractor** é uma ferramenta CLI que extrai/corrige questões de provas do ENEM e as converte em JSON mantendo assets (imagens, gráficos, etc.)
 
 🏓 [Veja uma prova extraida pelo Enem Extractor no mundo real aqui](https://diaslui.github.io/enem-extractor/)
 
@@ -25,9 +33,17 @@
 Neste repositório você pode encontrar todas as provas do **Enem** em **JSON** extraídas pelo Enem Extractor. [Clique aqui para ver](https://github.com/diaslui/enem-extractor/tree/master/provas).
 
 
+## 🎯 Aplicações
+
+- **Machine Learning**: Treine modelos de IA com questões do ENEM.
+
+- **Web Apps**: Crie aplicativos web para estudantes com questões do ENEM.
+
+- **Banco de Questões**: Crie ou Alimente bancos de questões com questões do ENEM.
+
 ## 🚀 Rodando
 
-> Para rodar esse projeto você precisa ter o Python e o pip instalados. [Você pode baixar o Python aqui](https://www.python.org/downloads/).
+> Para rodar esse projeto você precisa ter o Python (3.6+) e o pip instalados. [Você pode baixar o Python aqui](https://www.python.org/downloads/).
 
 ### 1. Instale o Enem Extractor
 
@@ -74,6 +90,10 @@ Este comando irá extrair as questões da prova `prova.pdf`, corrigir com o gaba
 ## 🔧 Como Contribuir
 
 1. Faça um fork deste repositório.
+2. Crie uma venv (`python -m venv venv`) e ative-a (`source venv/bin/activate` ou `venv/script/activate`).
+3. Instale as dependências (`pip install -r requirements.txt`).
+4. Faça as alterações desejadas, instale o pacote localmente (`pip install -e .`) e teste.
+5. Faça o commit das suas alterações (`git commit -am 'Adiciona nova funcionalidade'`).
 2. Crie uma branch para a sua modificação (`git checkout -b feature/nova-funcionalidade`).
 3. Faça suas alterações e commit (`git commit -am 'Adiciona nova funcionalidade'`).
 4. Envie para o repositório original (`git push origin feature/nova-funcionalidade`).
