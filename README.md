@@ -1,11 +1,4 @@
 
-<p align="center">
-  <a href="https://github.com/diaslui/enem-extractor">
-    <img loading="lazy" alt="enem-extractor" src="https://raw.githubusercontent.com/diaslui/enem-extractor/refs/heads/master/docs/assets/enem-extrac-banner.png" width="100%"/>
-  </a>
-</p>
-
-
 # Enem Extractor
 
 
@@ -70,6 +63,7 @@ Você pode fornecer parâmetros adicionais para personalizar o processo de extra
 - `-f` ou `--file`: Caminho para o arquivo PDF da prova. (obrigatório)
 - `-g` ou `--key`: Caminho para o arquivo PDF do gabarito. (opcional)
 - `-o` ou `--output`: Caminho onde a pasta dos arquivos extraídos será criada. (opcional)
+- `-m` ou `--minimal`: Extração mínima, sem detalhamento de fontes de texto e espaçamento. (opcional)
 
 Exemplo de uso com parâmetros:
 

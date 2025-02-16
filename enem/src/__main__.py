@@ -5,7 +5,7 @@ import os
 from PIL import Image
 from typing import Union, Optional
 from .validations import valid_question_number
-from .utils import parse_question_number, rename_file, get_font_style, convert_to_hex_color
+from .utils import parse_question_number, rename_file, get_font_style, convert_to_hex_color,display_text_details, validate_image, display
 from .answers import answer_parser, test_correction
 from .image_extractor import resolve_image
 from .validations import is_question_alternative
@@ -23,7 +23,7 @@ Day 1 -> Linguagens, Códigos e suas Tecnologias
 Day 2 -> Ciências da Natureza e suas Tecnologias + Matemática e suas Tecnologias
 """
 
-def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional[str] = None) -> Optional[tuple]:
+def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional[str] = None, minimal:bool = False) -> Optional[tuple]:
     """
     This function is the main function of the application.
 
@@ -64,7 +64,6 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                 for line in block["lines"]:
                     for span in line["spans"]:
                         text = span["text"]
-                    #    print(f"Text: {text.strip()}")
 
                         if "questão" in text.lower() and valid_question_number(text):
                             # question found
@@ -73,10 +72,10 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
 
                             if day is None and isinstance(DAY_SPLIT, int) and DAY_SPLIT > 0 and isinstance(actual_question, int):
                                 if actual_question > DAY_SPLIT and actual_question <= QUESTION_RANGE[1]:
-                                    print(colorama.Fore.LIGHTBLACK_EX + f"Identified as day 2")
+                                    display(f"Identified as day 2", 'lightblack')
                                     day = 2
                                 elif actual_question <= DAY_SPLIT and isinstance(QUESTION_RANGE, (list, tuple)) and actual_question >= QUESTION_RANGE[0]:
-                                    print(colorama.Fore.LIGHTBLACK_EX + f"Identified as day 1")
+                                    display(f"Identified as day 1", 'lightblack')
                                     day = 1
                                 
                             continue
@@ -112,13 +111,14 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                         if alternative_test == None and question_alternatives != {}:
                             # alternative text found
                             question_alternatives[len(question_alternatives)-1]["content"].append({
-                                "font_style": get_font_style(span['font']),
-                                "font_color": convert_to_hex_color(span['color'], span['alpha']),
-                                "font_name": span["font"],
-                                "font_size": round(span["size"], 3),
+                                **display_text_details(span),
                                 "type": "text",
                                 "content": text
-                            })
+                            } if not minimal else {
+                                "type": "text",
+                                "content": text
+                            }
+                            )
 
                             if question_alternatives[len(question_alternatives)-1]["alternative_value"] == 4:
                                 # EOQ end of question
@@ -135,13 +135,14 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                         if actual_question:
                             # question content (text) found
                             question_content.append({
-                                "font_style": get_font_style(span['font']),
-                                "font_color": convert_to_hex_color(span['color'], span['alpha']),
-                                "font_name": span["font"],
-                                "font_size": round(span["size"], 3),
+                                **display_text_details(span),
                                 "type": "text",
                                 "content": text
-                            })
+                            } if not minimal else {
+                                "type": "text",
+                                "content": text
+                            }
+                            )
                         continue
 
             if block_type == 1: # image
@@ -154,6 +155,17 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
                 for data in img_data:
                     if data["width"] == width and data["height"] == height:
                         img_data.remove(data)
+                        is_valid_img = validate_image(image)
+
+                        if not is_valid_img:
+                            if os.path.exists(data["imagePath"]):
+                                try:
+                                    if os.path.exists(data["imagePath"]):
+                                        os.remove(data["imagePath"])
+                                except FileNotFoundError:
+                                    pass
+                            continue
+
                         new_path = rename_file(data["imagePath"], f"question-{actual_question}")
                         if new_path:
                             question_content.append({
@@ -165,9 +177,14 @@ def extractor(file_pdf_path: str, root_path: str, test_answer_key_path: Optional
     
     if img_data.__len__() > 0:
         for data in img_data:
-            os.remove(data["imagePath"])
+            try:
+                if os.path.exists(data["imagePath"]):
+                    os.remove(data["imagePath"])
+            except FileNotFoundError:
+                pass
 
     if test_answer and test_answer != None:
-        print(colorama.Fore.WHITE + "Starting correction...")
+        display("Starting test correction", 'lightblack')
         questions = test_correction(questions, test_answer)
+        display("Test correction completed", 'lightblack')
     return (root_path, questions) if questions else None
