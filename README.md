@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://github.com/diaslui/enem-extractor">
-    <img loading="lazy" alt="enem-extractor" src="https://github.com/diaslui/enem-extractor/raw/main/docs/assets/enem-extrac-banner.png" width="100%"/>
+    <img loading="lazy" alt="enem-extractor" src="https://raw.githubusercontent.com/diaslui/enem-extractor/refs/heads/master/docs/assets/enem-extrac-banner.png" width="100%"/>
   </a>
 </p>
 
